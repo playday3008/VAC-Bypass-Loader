@@ -1,0 +1,20 @@
+name: C/C++ CI
+
+on: [pull_request, push]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup MSBuild.exe
+      uses: warrenbuckley/Setup-MSBuild@v1
+    - name: MSBuild
+      working-directory: VAC-Bypass-Loader
+      run: msbuild VAC-Bypass-Loader.vcxproj /p:Configuration=Release /p:Platform=Win32 /p:VisualStudioVersion=16.0
+    - uses: actions/upload-artifact@v1
+      with:
+        name: Release
+        path: VAC-Bypass-Loader/Release/VAC-Bypass-Loader.dll
