@@ -17,4 +17,4 @@ jobs:
     - uses: actions/upload-artifact@v1
       with:
         name: Release
-        path: VAC-Bypass-Loader/Release/VAC-Bypass-Loader.dll
+        path: VAC-Bypass-Loader/Release/VAC-Bypass-Loader.exe
